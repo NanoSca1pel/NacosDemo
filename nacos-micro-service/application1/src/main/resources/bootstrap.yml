@@ -1,0 +1,21 @@
+server:
+  port: 56020 #启动端口
+  servlet:
+    context-path: /application1  #项目请求根路径
+
+spring:
+  application:
+    name: application1
+  main:
+    allow-bean-definition-overriding: true #SpringBoot 2.+需要设定  放置Bean重复覆盖问题
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848 #服务(发现)注册中心地址
+        namespace: dcac3d99-bb33-4112-8667-c2296c00213d
+        cluster-name: DEFALUT
+      config:
+        server-addr: 127.0.0.1:8848 #配置中心地址
+        file-extension: yaml
+        namespace: dcac3d99-bb33-4112-8667-c2296c00213d
+        group: NACOS_MICROSERVICE_GROUP #业务组
