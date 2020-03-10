@@ -1,0 +1,32 @@
+server:
+  port: ${port:56031} #启动端口，使用命令行注入，如果没注入则使用56030
+
+spring:
+  application:
+    name: service2
+  main:
+    allow-bean-definition-overriding: true #SpringBoot2.1 需要指定
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: aed22a00-90be-425f-ba44-458dc8f2ccb0  #公司 aed22a00-90be-425f-ba44-458dc8f2ccb0  家里 dcac3d99-bb33-4112-8667-c2296c00213d
+        cluster-name: DEFAULT
+      config:
+        server-addr: 127.0.0.1:8848 #配置中心地址
+        file-extension: yaml
+        namespace: aed22a00-90be-425f-ba44-458dc8f2ccb0
+        group: NACOS_MICROSERVICE_GROUP #业务组
+
+dubbo:
+  scan:
+    base-packages: com.lht.service.impl #dubbo 服务扫描基准包
+  protocol:
+    name: dubbo  #指定使用dubbo协议
+    port: ${dubbo_port:20882}  #指定dubbo协议的端口
+  registry:
+    address: nacos://127.0.0.1:8848  #将dubbo服务的注册地址，这里指定nacos注册中心
+  application:
+    qos-enable: false  #dubbo运维服务是否开启
+  consumer:
+    check: false  #启动时是否检查依赖的服务

@@ -1,0 +1,19 @@
+server:
+  port: 56010 #启动端口，使用命令行注入，如果没注入则使用56010
+
+spring:
+  application:
+    name: api-gateway
+  main:
+    allow-bean-definition-overriding: true #SpringBoot2.1 需要指定
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: aed22a00-90be-425f-ba44-458dc8f2ccb0  #公司 aed22a00-90be-425f-ba44-458dc8f2ccb0  家里 dcac3d99-bb33-4112-8667-c2296c00213d
+        cluster-name: DEFAULT
+      config:
+        server-addr: 127.0.0.1:8848 #配置中心地址
+        file-extension: yaml
+        namespace: aed22a00-90be-425f-ba44-458dc8f2ccb0
+        group: NACOS_MICROSERVICE_GROUP #业务组

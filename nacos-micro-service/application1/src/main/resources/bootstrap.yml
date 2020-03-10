@@ -12,10 +12,11 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848 #服务(发现)注册中心地址
-        namespace: dcac3d99-bb33-4112-8667-c2296c00213d
+        namespace: aed22a00-90be-425f-ba44-458dc8f2ccb0  #公司 aed22a00-90be-425f-ba44-458dc8f2ccb0  家里 dcac3d99-bb33-4112-8667-c2296c00213d
         cluster-name: DEFALUT
+        register-enabled: false
       config:
         server-addr: 127.0.0.1:8848 #配置中心地址
         file-extension: yaml
-        namespace: dcac3d99-bb33-4112-8667-c2296c00213d
+        namespace: aed22a00-90be-425f-ba44-458dc8f2ccb0
         group: NACOS_MICROSERVICE_GROUP #业务组
